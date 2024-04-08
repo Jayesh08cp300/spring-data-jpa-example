@@ -5,7 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.IdGeneratorType;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.util.Date;
 
 @Entity
 @Table
@@ -13,6 +19,7 @@ import org.hibernate.annotations.IdGeneratorType;
 @AllArgsConstructor
 @Data
 @Builder
+@EntityListeners(AuditingEntityListener.class)
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,4 +27,13 @@ public class User {
 	private String name;
 	private String designation;
 	private String age;
+
+	@CreatedDate
+	private Date createDate;
+	@LastModifiedDate
+	private Date lastModifiedDate;
+	@CreatedBy
+	private String createdBy;
+	@LastModifiedBy
+	private String modifiedBy;
 }

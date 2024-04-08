@@ -19,6 +19,7 @@ public class UserService {
 	}
 
 	public User save(User user) {
+		user.setCreatedBy("Jay");
 		return userRepository.save(user);
 	}
 
