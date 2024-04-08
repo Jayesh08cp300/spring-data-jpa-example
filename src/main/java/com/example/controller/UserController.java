@@ -3,13 +3,11 @@ package com.example.controller;
 import com.example.entity.User;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@Transactional
 public class UserController {
 	@Autowired
 	private UserService userService;
