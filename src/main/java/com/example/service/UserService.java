@@ -34,4 +34,8 @@ public class UserService {
 	public List<User> findByNameAndDesignation(String name, String designation) {
 		return userRepository.findByNameAndDesignation(name, designation);
 	}
+
+	public List<User> getUsersCustomQuery() {
+		return userRepository.getUsersCustomQuery();
+	}
 }

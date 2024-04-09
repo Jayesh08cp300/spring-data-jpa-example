@@ -36,4 +36,9 @@ public class UserController {
 	public List<User> findByNameAndDesignation(@PathVariable String name, @PathVariable String designation) {
 		return userService.findByNameAndDesignation(name, designation);
 	}
+
+	@GetMapping("/allUsers")
+	public List<User> getUsersCustomQuery() {
+		return userService.getUsersCustomQuery();
+	}
 }
